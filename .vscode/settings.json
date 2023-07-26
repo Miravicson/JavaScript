@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "exploring-js-number-system": true,
+    "operation-fixes": true,
+  },
+  "eslint.workingDirectories": [
+    "operation-fixes",
+  ],
+  "editor.wordWrap": "on",
+  "npm.packageManager": "pnpm",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}

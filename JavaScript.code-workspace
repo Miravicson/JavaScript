@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name":"JavaScript Miscellaneous Code"
+		},
+		{
+			"path": "./exploring-js-number-system",
+			"name":"JS Number system"
+		},
+		{
+			"path": "./operation-fixes",
+			"name": "Operation fixes"
+		}
+	],
+	"settings": {
+		"editor.formatOnSaveMode": "modifications"
+	}
+}
