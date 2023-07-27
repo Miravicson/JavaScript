@@ -11,6 +11,10 @@
 		{
 			"path": "./operation-fixes",
 			"name": "Operation fixes"
+		},
+		{
+			"path": "./design-patterns",
+			"name": "Design Patterns"
 		}
 	],
 	"settings": {

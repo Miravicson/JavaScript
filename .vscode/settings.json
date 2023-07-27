@@ -8,9 +8,11 @@
     "**/Thumbs.db": true,
     "exploring-js-number-system": true,
     "operation-fixes": true,
+    "design-patterns": true,
   },
   "eslint.workingDirectories": [
     "operation-fixes",
+    "design-patterns"
   ],
   "editor.wordWrap": "on",
   "npm.packageManager": "pnpm",
