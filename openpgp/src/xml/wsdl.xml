@@ -1,0 +1,473 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://www.hydrogenpay.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http"
+  xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.hydrogenpay.com/"
+  name="HydrogenPayEft">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.hydrogenpay.com/">
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:element name="nameenquirysingleitem">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="nameenquirysingleitemResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="balanceenquiry">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="balanceenquiryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fundtransfersingleitem_dd">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fundtransfersingleitem_ddResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fundtransfersingleitem_dc">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fundtransfersingleitem_dcResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fundtransferAdvice_dc">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fundtransferAdvice_dcResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fundtransferAdvice_dd">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fundtransferAdvice_ddResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="amountblock">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="amountblockResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="amountUnblock">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="amountUnblockResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="accountblock">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="accountblockResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="accountUnblock">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="accountUnblockResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="financialinstitutionlist">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="financialinstitutionlistResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mandateadvice">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mandateadviceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="txnstatusquerysingleitem">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="request" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="txnstatusquerysingleitemResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="return" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="HydrogenPayEft_nameenquirysingleitem_InputMessage">
+    <wsdl:part name="parameters" element="tns:nameenquirysingleitem" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_nameenquirysingleitem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:nameenquirysingleitemResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_balanceenquiry_InputMessage">
+    <wsdl:part name="parameters" element="tns:balanceenquiry" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_balanceenquiry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:balanceenquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_fundtransfersingleitem_dd_InputMessage">
+    <wsdl:part name="parameters" element="tns:fundtransfersingleitem_dd" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_fundtransfersingleitem_dd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fundtransfersingleitem_ddResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_fundtransfersingleitem_dc_InputMessage">
+    <wsdl:part name="parameters" element="tns:fundtransfersingleitem_dc" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_fundtransfersingleitem_dc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fundtransfersingleitem_dcResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_fundtransferAdvice_dc_InputMessage">
+    <wsdl:part name="parameters" element="tns:fundtransferAdvice_dc" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_fundtransferAdvice_dc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fundtransferAdvice_dcResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_fundtransferAdvice_dd_InputMessage">
+    <wsdl:part name="parameters" element="tns:fundtransferAdvice_dd" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_fundtransferAdvice_dd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:fundtransferAdvice_ddResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_amountblock_InputMessage">
+    <wsdl:part name="parameters" element="tns:amountblock" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_amountblock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:amountblockResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_amountUnblock_InputMessage">
+    <wsdl:part name="parameters" element="tns:amountUnblock" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_amountUnblock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:amountUnblockResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_accountblock_InputMessage">
+    <wsdl:part name="parameters" element="tns:accountblock" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_accountblock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:accountblockResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_accountUnblock_InputMessage">
+    <wsdl:part name="parameters" element="tns:accountUnblock" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_accountUnblock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:accountUnblockResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_financialinstitutionlist_InputMessage">
+    <wsdl:part name="parameters" element="tns:financialinstitutionlist" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_financialinstitutionlist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:financialinstitutionlistResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_mandateadvice_InputMessage">
+    <wsdl:part name="parameters" element="tns:mandateadvice" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_mandateadvice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:mandateadviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_txnstatusquerysingleitem_InputMessage">
+    <wsdl:part name="parameters" element="tns:txnstatusquerysingleitem" />
+  </wsdl:message>
+  <wsdl:message name="HydrogenPayEft_txnstatusquerysingleitem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:txnstatusquerysingleitemResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HydrogenPayEft">
+    <wsdl:operation name="nameenquirysingleitem">
+      <wsdl:input message="tns:HydrogenPayEft_nameenquirysingleitem_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_nameenquirysingleitem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="balanceenquiry">
+      <wsdl:input message="tns:HydrogenPayEft_balanceenquiry_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_balanceenquiry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fundtransfersingleitem_dd">
+      <wsdl:input message="tns:HydrogenPayEft_fundtransfersingleitem_dd_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_fundtransfersingleitem_dd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fundtransfersingleitem_dc">
+      <wsdl:input message="tns:HydrogenPayEft_fundtransfersingleitem_dc_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_fundtransfersingleitem_dc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fundtransferAdvice_dc">
+      <wsdl:input message="tns:HydrogenPayEft_fundtransferAdvice_dc_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_fundtransferAdvice_dc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="fundtransferAdvice_dd">
+      <wsdl:input message="tns:HydrogenPayEft_fundtransferAdvice_dd_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_fundtransferAdvice_dd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="amountblock">
+      <wsdl:input message="tns:HydrogenPayEft_amountblock_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_amountblock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="amountUnblock">
+      <wsdl:input message="tns:HydrogenPayEft_amountUnblock_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_amountUnblock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="accountblock">
+      <wsdl:input message="tns:HydrogenPayEft_accountblock_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_accountblock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="accountUnblock">
+      <wsdl:input message="tns:HydrogenPayEft_accountUnblock_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_accountUnblock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="financialinstitutionlist">
+      <wsdl:input message="tns:HydrogenPayEft_financialinstitutionlist_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_financialinstitutionlist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="mandateadvice">
+      <wsdl:input message="tns:HydrogenPayEft_mandateadvice_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_mandateadvice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="txnstatusquerysingleitem">
+      <wsdl:input message="tns:HydrogenPayEft_txnstatusquerysingleitem_InputMessage" />
+      <wsdl:output message="tns:HydrogenPayEft_txnstatusquerysingleitem_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_HydrogenPayEft_soap" type="tns:HydrogenPayEft">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="nameenquirysingleitem">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/nameenquirysingleitem"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="balanceenquiry">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/balanceenquiry"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fundtransfersingleitem_dd">
+      <soap:operation
+        soapAction="http://www.hydrogenpay.com/HydrogenPayEft/fundtransfersingleitem_dd"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fundtransfersingleitem_dc">
+      <soap:operation
+        soapAction="http://www.hydrogenpay.com/HydrogenPayEft/fundtransfersingleitem_dc"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fundtransferAdvice_dc">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/fundtransferAdvice_dc"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fundtransferAdvice_dd">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/fundtransferAdvice_dd"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="amountblock">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/amountblock"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="amountUnblock">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/amountUnblock"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="accountblock">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/accountblock"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="accountUnblock">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/accountUnblock"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="financialinstitutionlist">
+      <soap:operation
+        soapAction="http://www.hydrogenpay.com/HydrogenPayEft/financialinstitutionlist"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mandateadvice">
+      <soap:operation soapAction="http://www.hydrogenpay.com/HydrogenPayEft/mandateadvice"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="txnstatusquerysingleitem">
+      <soap:operation
+        soapAction="http://www.hydrogenpay.com/HydrogenPayEft/txnstatusquerysingleitem"
+        style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HydrogenPayEft">
+    <wsdl:port name="BasicHttpBinding_HydrogenPayEft_soap"
+      binding="tns:BasicHttpBinding_HydrogenPayEft_soap">
+      <soap:address location="http://sandbox-bankai.hydrogenpay.com/eft.wsdl" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

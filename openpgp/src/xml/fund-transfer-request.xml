@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTSingleCreditRequest>
+  <SessionID>000001100913103301000000000002</SessionID>
+  <NameEnquiryRef>000001100913103301000000000001</NameEnquiryRef>
+  <DestinationInstitutionCode>000002</DestinationInstitutionCode>
+  <ChannelCode>1</ChannelCode>
+  <BeneficiaryAccountName>Halima Salawu</BeneficiaryAccountName>
+  <BeneficiaryAccountNumber>0123456789</BeneficiaryAccountNumber>
+  <BeneficiaryBankVerificationNumber>012345678912</BeneficiaryBankVerificationNumber>
+  <BeneficiaryKYCLevel>1</BeneficiaryKYCLevel>
+  <OriginatorAccountName>Uju Nwashili</OriginatorAccountName>
+  <OriginatorAccountNumber>1234567890</OriginatorAccountNumber>
+  <OriginatorBankVerificationNumber>12345678910</OriginatorBankVerificationNumber>
+  <OriginatorKYCLevel>1</OriginatorKYCLevel>
+  <TransactionLocation>6.4300747,3.4110715</TransactionLocation>
+  <Narration>1000000001</Narration>
+  <PaymentReference>yyyyyyyyyyyyyy</PaymentReference>
+  <Amount>1000.00</Amount>
+</FTSingleCreditRequest>

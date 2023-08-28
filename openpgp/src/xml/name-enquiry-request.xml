@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NESingleRequest>
+  <SessionID>000001100913103301000000000001</SessionID>
+  <DestinationInstitutionCode>999999</DestinationInstitutionCode>
+  <ChannelCode>1</ChannelCode>
+  <AccountNumber>1010101010</AccountNumber>
+</NESingleRequest>

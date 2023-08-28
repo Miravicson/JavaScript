@@ -15,6 +15,14 @@
 		{
 			"path": "./design-patterns",
 			"name": "Design Patterns"
+		},
+		{
+			"path": "./openpgp",
+			"name": "Open PGP"
+		},
+		{
+			"path": "./station-prices-app-full",
+			"name": "Station Prices"
 		}
 	],
 	"settings": {

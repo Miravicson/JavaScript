@@ -9,10 +9,14 @@
     "exploring-js-number-system": true,
     "operation-fixes": true,
     "design-patterns": true,
+    "openpgp": true,
+    "station-prices-app-full": true,
   },
   "eslint.workingDirectories": [
     "operation-fixes",
-    "design-patterns"
+    "design-patterns",
+    "openpgp",
+    "station-prices-app-full",
   ],
   "editor.wordWrap": "on",
   "npm.packageManager": "pnpm",
