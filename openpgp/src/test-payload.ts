@@ -1,9 +1,10 @@
-import { FundTransferPayload, NameEnquiryPayload } from './hydrogen-service';
+import { FundTransferPayload, NameEnquiryPayload, TransactionStatusQueryPayload } from './hydrogen-service';
 
 export class HydrogenTestPayloads {
   private static channelCode = 1;
   private static destinationCode = 999999;
   private static accountNumbers: number[] = [1010101010, 1111111111, 2222222222];
+  private static sourceInstitutionCode: string = '000002';
 
   static nameEnquiryPayload: NameEnquiryPayload = {
     SessionID: Date.now().toString(),
@@ -29,5 +30,11 @@ export class HydrogenTestPayloads {
     PaymentReference: '23533535353sagagdgdg',
     SessionID: Date.now().toString(),
     TransactionLocation: '62.23533,23535336',
+  };
+
+  static transactionStatusQueryPayload: TransactionStatusQueryPayload = {
+    ChannelCode: this.channelCode,
+    SessionID: Date.now().toString(),
+    SourceInstitutionCode: this.sourceInstitutionCode,
   };
 }

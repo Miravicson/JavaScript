@@ -28,6 +28,12 @@ export interface FundTransferPayload extends HydrogenRequiredInfo {
   Amount: number;
 }
 
+export interface TransactionStatusQueryPayload {
+  SourceInstitutionCode: string | number;
+  ChannelCode: number;
+  SessionID: string | number;
+}
+
 export class HydrogenRestService {
   private axios: AxiosInstance;
   constructor() {
@@ -36,7 +42,7 @@ export class HydrogenRestService {
     });
   }
 
-  private async buildRequest(payload: NameEnquiryPayload | FundTransferPayload) {
+  private async buildRequest(payload: NameEnquiryPayload | FundTransferPayload | TransactionStatusQueryPayload) {
     const request = await pgpService.encryptPayload(payload);
     return { request };
   }
@@ -51,6 +57,16 @@ export class HydrogenRestService {
 
   async fundTransfer(payload: FundTransferPayload = HydrogenTestPayloads.fundTransferPayload) {
     const { data } = await this.axios.post<any>('ft', await this.buildRequest(payload));
+    const { data: requestDataStr, ...rest } = data;
+    const response = { ...rest, data: JSON.parse(requestDataStr) };
+    console.log('Response -->', JSON.stringify(response, null, 2), '\n\n');
+    return response;
+  }
+
+  async transactionStatusQuery(
+    payload: TransactionStatusQueryPayload = HydrogenTestPayloads.transactionStatusQueryPayload,
+  ) {
+    const { data } = await this.axios.post<any>('tsq', await this.buildRequest(payload));
     const { data: requestDataStr, ...rest } = data;
     const response = { ...rest, data: JSON.parse(requestDataStr) };
     console.log('Response -->', JSON.stringify(response, null, 2), '\n\n');

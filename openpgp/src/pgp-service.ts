@@ -1,6 +1,5 @@
 import path from 'node:path';
 import * as openpgp from 'openpgp';
-import { FundTransferPayload, NameEnquiryPayload } from './hydrogen-service';
 import { readTxt, saveOutput } from './utils';
 
 interface GenerateKeyPairsOptions {
@@ -28,7 +27,7 @@ export class PgpService {
     return encryptedHex;
   }
 
-  async encryptPayload(payload: NameEnquiryPayload | FundTransferPayload) {
+  async encryptPayload<T extends Object>(payload: T) {
     return this.encryptMessage(JSON.stringify(payload));
   }
 
