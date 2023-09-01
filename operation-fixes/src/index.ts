@@ -1,4 +1,5 @@
 import path from 'node:path';
+
 import { AppDataSource } from './data-source';
 import { Transaction } from './entity/Transaction';
 import { backupSqlStatement, transformFileToTuple, updateSqlStatement } from './scripts';

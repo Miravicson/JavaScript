@@ -1,7 +1,10 @@
-import { Transaction, TransactionStatusCode, TransactionStatusMessage } from '@/entity/Transaction';
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+
 import { In, Repository } from 'typeorm';
+
+import { Transaction, TransactionStatusCode, TransactionStatusMessage } from '@/entity/Transaction';
+
 import { saveJsonAsCsv } from './csvParser';
 
 const outputDir = path.resolve(__dirname, path.join('../scripts', 'output'));
