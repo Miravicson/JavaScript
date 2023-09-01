@@ -35,27 +35,45 @@ export class TransactionService {
   }
 
   async bulkUpdateStatusToFailed(references: string[]) {
+    const status = { statusCode: TransactionStatusCode.FAILED, statusMessage: TransactionStatusMessage.FAILED };
+    await this.bulkUpdateStatus(status, references);
+  }
+
+  async bulkUpdateStatusToSuccess(references: string[]) {
+    const status = { statusCode: TransactionStatusCode.SUCCESS, statusMessage: TransactionStatusMessage.SUCCESS };
+    await this.bulkUpdateStatus(status, references);
+  }
+
+  async bulkUpdateStatus(
+    status: { statusCode: TransactionStatusCode; statusMessage: TransactionStatusMessage },
+    references: string[],
+  ) {
     await this.repository
       .createQueryBuilder()
       .update(Transaction)
       .set({
-        statusCode: TransactionStatusCode.FAILED,
-        statusMessage: TransactionStatusMessage.FAILED,
+        statusCode: status.statusCode,
+        statusMessage: status.statusMessage,
+        isResolved: true,
       })
       .where({ transactionReference: In(references) })
       .execute();
   }
 
-  async updateReferencesToFailed() {
+  async updateReferencesToStatus(status: 'failed' | 'success') {
     const inputFile = path.resolve(__dirname, path.join('../scripts', 'input.txt'));
     const fileContent = await readFile(inputFile, { encoding: 'utf8' });
-
     if (!fileContent) {
       return;
     }
 
     const references = fileContent.split('\n');
     await this.bulkBackupData(references);
-    await this.bulkUpdateStatusToFailed(references);
+
+    if (status === 'failed') {
+      await this.bulkUpdateStatusToFailed(references);
+    } else {
+      await this.bulkUpdateStatusToSuccess(references);
+    }
   }
 }

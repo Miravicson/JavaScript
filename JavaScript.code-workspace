@@ -2,7 +2,7 @@
 	"folders": [
 		{
 			"path": ".",
-			"name":"JavaScript Miscellaneous Code"
+			"name": "JavaScript Root"
 		},
 		{
 			"path": "./exploring-js-number-system",
