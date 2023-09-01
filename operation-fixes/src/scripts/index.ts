@@ -1,3 +1,4 @@
+import { TransactionStatusCode, TransactionStatusMessage } from '@/entity/Transaction';
 import { appendFileSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
@@ -24,9 +25,25 @@ function convertStringToTuple(stringArr: string[]): string {
   return tuple;
 }
 
-function genUpdateSqlStatement(sqlTuple: string): string {
+type Status = { statusCode: TransactionStatusCode; statusMessage: TransactionStatusMessage };
+
+function withStatus(
+  status: Status = {
+    statusCode: TransactionStatusCode.FAILED,
+    statusMessage: TransactionStatusMessage.FAILED,
+  },
+) {
+  return (sqlTuple: string) => {
+    return genUpdateSqlStatement(sqlTuple, status);
+  };
+}
+
+function genUpdateSqlStatement(
+  sqlTuple: string,
+  status: Status = { statusCode: TransactionStatusCode.FAILED, statusMessage: TransactionStatusMessage.FAILED },
+): string {
   if (!sqlTuple) return '';
-  const sqlTemplate = `UPDATE public.transactions SET status_code = '06', status_message = 'FAILED', resolution = true WHERE transaction_reference IN ??;`;
+  const sqlTemplate = `UPDATE public.transactions SET status_code = '${status.statusCode}', status_message = '${status.statusMessage}' , resolution = true WHERE transaction_reference IN ??;`;
   const query = sqlTemplate.replace('??', sqlTuple);
   return query;
 }
@@ -53,8 +70,11 @@ function pipe<T>(...func: Function[]) {
 }
 
 export const transformFileToTuple = pipe<string>(readTxt, convertStringToTuple, saveOutput);
-export const updateSqlStatement = pipe<string>(readTxt, convertStringToTuple, genUpdateSqlStatement, (tuple: string) =>
-  saveOutput(tuple, 'update.sql'),
+export const updateSqlStatement = pipe<string>(
+  readTxt,
+  convertStringToTuple,
+  withStatus({ statusCode: TransactionStatusCode.FAILED, statusMessage: TransactionStatusMessage.FAILED }),
+  (tuple: string) => saveOutput(tuple, 'update.sql'),
 );
 export const backupSqlStatement = pipe<string>(readTxt, convertStringToTuple, genBackupSqlStatement, (tuple: string) =>
   saveOutput(tuple, 'backup.sql'),

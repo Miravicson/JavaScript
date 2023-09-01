@@ -9,9 +9,11 @@ interface GenerateKeyPairsOptions {
 
 export class PgpService {
   private PUBLIC_KEY_STRING: string;
+  private PRIVATE_KEY_STRING: string;
 
   constructor() {
     this.PUBLIC_KEY_STRING = readTxt(path.resolve(__dirname, './encryption-keys/hydrogen-public.key'));
+    this.PRIVATE_KEY_STRING = readTxt(path.resolve(__dirname, './encryption-keys/private-key.key'));
   }
 
   private async encryptMessage(message: string) {
@@ -23,7 +25,7 @@ export class PgpService {
     });
 
     const encryptedHex = Buffer.from(encrypted as Uint8Array).toString('hex');
-    console.log(`${this.constructor.name}: EncryptedInformation -->\n`, encryptedHex, '\n\n');
+    // console.log(`${this.constructor.name}: EncryptedInformation -->\n`, encryptedHex, '\n\n');
     return encryptedHex;
   }
 
@@ -31,7 +33,23 @@ export class PgpService {
     return this.encryptMessage(JSON.stringify(payload));
   }
 
-  async decryptMessage(message: string) {}
+  async decryptResponse(response: string) {
+    const privateKey = await openpgp.decryptKey({
+      privateKey: await openpgp.readPrivateKey({ armoredKey: this.PRIVATE_KEY_STRING }),
+      passphrase: process.env.PGP_KEY_PASS_PHRASE,
+    });
+
+    const encryptedMessage = await openpgp.readMessage({
+      binaryMessage: Uint8Array.from(Buffer.from(response, 'hex')),
+    });
+
+    const { data: decryptedString } = await openpgp.decrypt({
+      message: encryptedMessage,
+      decryptionKeys: privateKey,
+    });
+    const data = JSON.parse(decryptedString as string);
+    return data;
+  }
 
   /**
    * Used to generate pgp public and private keys

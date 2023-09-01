@@ -2,11 +2,13 @@ import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, Index, Pr
 
 
 export enum TransactionStatusMessage {
-  FAILED = "FAILED",
+  FAILED = 'FAILED',
+  SUCCESS = 'SUCCESSFUL',
 }
 
 export enum TransactionStatusCode {
-  FAILED = '06'
+  FAILED = '06',
+  SUCCESS = '00',
 }
 
 @Entity({

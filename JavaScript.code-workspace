@@ -26,6 +26,13 @@
 		}
 	],
 	"settings": {
-		"editor.formatOnSaveMode": "modifications"
+		"editor.formatOnSaveMode": "modifications",
+		"jest.disabledWorkspaceFolders": [
+			"Design Patterns",
+			"Operation fixes",
+			"JavaScript Miscellaneous Code",
+			"Open PGP",
+			"JS Number system"
+		]
 	}
 }

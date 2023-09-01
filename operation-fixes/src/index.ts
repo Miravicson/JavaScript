@@ -13,6 +13,6 @@ AppDataSource.initialize()
     backupSqlStatement(scriptInputPath);
 
     const transactionService = new TransactionService(AppDataSource.getRepository(Transaction));
-    await transactionService.updateReferencesToFailed();
+    await transactionService.updateReferencesToStatus('success');
   })
   .catch((error) => console.log(error));
